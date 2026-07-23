@@ -16,14 +16,12 @@
 <style>
 
 :root {
-
     --cream:#F8F3EA;
     --brown:#5A3828;
     --text:#3A2A22;
     --sage:#A8B89A;
     --white:#FFFFFF;
     --soft:#EFE7DC;
-
 }
 
 
@@ -35,112 +33,86 @@
 
 
 body{
-
     font-family:"Inter",sans-serif;
     background:var(--cream);
     color:var(--text);
-
 }
-
 
 
 /* HEADER */
 
 header{
-
     display:flex;
     justify-content:space-between;
     align-items:center;
     padding:25px 70px;
-
 }
 
 
 .logo img{
-
     width:140px;
-
+    height:auto;
 }
 
 
-
 nav{
-
     display:flex;
     align-items:center;
     gap:35px;
-
 }
 
 
 nav a{
-
     text-decoration:none;
     color:var(--text);
     font-size:15px;
-
 }
 
 
 nav a:hover{
-
     color:var(--sage);
-
 }
 
 
 .login{
-
     background:var(--brown);
     color:white;
     padding:12px 25px;
     border-radius:25px;
-
 }
-
 
 
 /* HERO */
 
-
 .hero{
-
     display:flex;
     align-items:center;
     justify-content:space-between;
     padding:90px 100px;
-
 }
 
 
 .hero-text{
-
     max-width:600px;
-
 }
 
 
 .hero h1{
-
     font-size:55px;
     line-height:1.15;
     color:var(--brown);
     margin-bottom:25px;
-
 }
 
 
 .hero p{
-
     font-size:18px;
     color:#756960;
     line-height:1.6;
-
 }
 
 
 .button{
-
     display:inline-block;
     margin-top:35px;
     background:var(--sage);
@@ -148,13 +120,10 @@ nav a:hover{
     padding:16px 35px;
     border-radius:30px;
     text-decoration:none;
-
 }
 
 
-
 .hero-image{
-
     width:350px;
     height:350px;
     background:white;
@@ -162,284 +131,207 @@ nav a:hover{
     display:flex;
     justify-content:center;
     align-items:center;
-
 }
 
 
 .hero-image svg{
-
     width:120px;
     height:120px;
     color:var(--sage);
-
 }
 
 
 
 /* TITRES */
 
-
 .section-title{
-
     text-align:center;
     margin-bottom:45px;
-
 }
 
 
 .section-title h2{
-
     color:var(--brown);
     font-size:35px;
-
 }
 
 
 .section-title p{
-
     margin-top:10px;
     color:#756960;
-
 }
 
 
 
-/* FEATURES */
-
+/* CARTES */
 
 .features{
-
     padding:80px 70px;
-
 }
-
 
 
 .cards{
-
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:25px;
-
 }
 
 
-
 .card{
-
     background:white;
     padding:35px 25px;
     border-radius:25px;
     text-align:center;
-
 }
 
 
 .card svg{
-
     width:40px;
     height:40px;
     color:var(--sage);
     margin-bottom:20px;
-
 }
 
 
-
 .card h3{
-
     color:var(--brown);
     margin-bottom:10px;
-
 }
 
 
 .card p{
-
     color:#756960;
     font-size:14px;
     line-height:1.5;
-
 }
-
 
 
 
 /* POURQUOI */
 
-
 .why{
-
     padding:80px 70px;
     background:white;
-
 }
 
 
-
 .why-grid{
-
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:30px;
-
 }
 
 
 .why-box{
-
     text-align:center;
-
 }
 
 
-
 .why-box svg{
-
     color:var(--sage);
     width:35px;
-
 }
 
 
 .why-box h3{
-
     margin:15px 0;
     color:var(--brown);
-
 }
-
 
 
 
 /* PLANNING */
 
-
 .planning{
-
     padding:80px 70px;
-
 }
 
 
 .calendar{
-
     background:white;
     border-radius:25px;
     padding:35px;
     max-width:700px;
     margin:auto;
-
 }
 
 
-
 .event{
-
     display:flex;
     justify-content:space-between;
     padding:15px 0;
     border-bottom:1px solid var(--soft);
-
 }
 
 
 .event:last-child{
-
     border:none;
-
 }
 
 
 
 /* FOOTER */
 
-
 footer{
-
     background:var(--brown);
     color:white;
     padding:40px 70px;
     display:flex;
     justify-content:space-between;
-
+    align-items:center;
 }
-
 
 
 footer img{
-
     width:110px;
-
 }
-
 
 
 
 /* MOBILE */
 
-
 @media(max-width:900px){
 
-
 header{
-
     padding:20px;
-
 }
 
-
 nav{
-
     display:none;
-
 }
 
 
 .hero{
-
     flex-direction:column;
     text-align:center;
     padding:50px 25px;
-
 }
 
 
 .hero h1{
-
     font-size:40px;
-
 }
 
 
 .hero-image{
-
     margin-top:40px;
-
 }
 
 
 .why-grid{
-
     grid-template-columns:1fr;
-
 }
 
 
 footer{
-
     flex-direction:column;
     gap:20px;
+}
 
 }
 
+</style>
 
-}
-
-</style>.logo img {
-    width: 140px;
-    height: auto;
-}
 
 </head>
 
@@ -450,11 +342,8 @@ footer{
 
 <header>
 
-
 <div class="logo">
-
-<img src="logo-qoya.png" alt="Logo QOYA">
-
+    <img src="logo-qoya.png" alt="Logo QOYA">
 </div>
 
 
@@ -466,48 +355,36 @@ footer{
 <a href="#">Santé</a>
 <a href="#">Planning</a>
 <a href="#">Notes</a>
-
-<a class="login" href="#">Connexion</a>
+<a class="login" href="connexion.html">Connexion</a>
 
 </nav>
-
 
 </header>
 
 
 
-
 <section class="hero">
 
-
 <div class="hero-text">
-
 
 <h1>
 L'assistant du quotidien pour votre chat
 </h1>
 
-
 <p>
 Centralisez la santé, l’alimentation et le suivi de votre compagnon dans un seul espace simple et intelligent.
 </p>
 
-
-<a class="button" href="#">
+<a class="button" href="inscription.html">
 Créer mon espace
 </a>
 
-
 </div>
-
 
 
 <div class="hero-image">
-
 <i data-lucide="cat"></i>
-
 </div>
-
 
 
 </section>
@@ -515,10 +392,7 @@ Créer mon espace
 
 
 
-
-
 <section class="features">
-
 
 <div class="section-title">
 
@@ -531,7 +405,6 @@ Un espace pensé pour suivre son quotidien facilement.
 </p>
 
 </div>
-
 
 
 <div class="cards">
@@ -561,7 +434,7 @@ Un espace pensé pour suivre son quotidien facilement.
 <div class="card">
 <i data-lucide="calendar-days"></i>
 <h3>Planning</h3>
-<p>Ne manquez plus aucun rappel important.</p>
+<p>Ne manquez aucun rappel important.</p>
 </div>
 
 
@@ -579,16 +452,12 @@ Un espace pensé pour suivre son quotidien facilement.
 
 
 
-
 <section class="why">
 
-
 <div class="section-title">
-
 <h2>
 Pourquoi QOYA ?
 </h2>
-
 </div>
 
 
@@ -596,130 +465,86 @@ Pourquoi QOYA ?
 
 
 <div class="why-box">
-
 <i data-lucide="sparkles"></i>
-
 <h3>Simple</h3>
-
 <p>Un espace clair et facile à utiliser.</p>
-
 </div>
 
 
-
 <div class="why-box">
-
 <i data-lucide="shield-check"></i>
-
 <h3>Organisé</h3>
-
-<p>Toutes les informations réunies au même endroit.</p>
-
+<p>Toutes les informations au même endroit.</p>
 </div>
-
 
 
 <div class="why-box">
-
 <i data-lucide="heart"></i>
-
 <h3>Personnalisé</h3>
-
-<p>Adapté aux besoins de votre compagnon.</p>
-
+<p>Adapté aux besoins de votre chat.</p>
 </div>
 
 
-
 </div>
-
 
 </section>
-
-
 
 
 
 
 <section class="planning">
 
-
 <div class="section-title">
-
 <h2>
 Votre planning
 </h2>
-
 </div>
 
 
 <div class="calendar">
 
-
 <div class="event">
-
 <span>Vaccin</span>
-
 <strong>12 août</strong>
-
 </div>
 
 
 <div class="event">
-
 <span>Vermifuge</span>
-
 <strong>20 août</strong>
-
 </div>
 
 
 <div class="event">
-
 <span>Achat croquettes</span>
-
 <strong>25 août</strong>
-
 </div>
 
 
 </div>
-
 
 </section>
 
 
 
 
-
-
-
 <footer>
 
-
-<img src="logo-qoya.png" alt="QOYA">
-
+<img src="logo-qoya.png" alt="Logo QOYA">
 
 <p>
 QOYA - L'assistant du quotidien pour votre chat
 </p>
 
-
 </footer>
 
 
 
-
-
 <script>
-
 lucide.createIcons();
-
 </script>
 
 
 </body>
 
-</html><div class="logo">
-    <img src="logo-qoya.png" alt="Logo QOYA">
-</div>
+</html>
