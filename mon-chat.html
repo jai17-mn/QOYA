@@ -2,455 +2,464 @@
 <html lang="fr">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mon chat - QOYA</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --cream: #F8F3EA;
-      --brown: #5A3828;
-      --sage: #A8B89A;
-      --text: #3A2A22;
-      --white: #FFFFFF;
-      --soft: #EFE7DC;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<title>Mon chat - QOYA</title>
 
-    body {
-      font-family: "Inter", sans-serif;
-      background: var(--cream);
-      color: var(--text);
-      padding: 30px;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 40px;
-    }
+<style>
 
-    .logo img {
-      width: 140px;
-    }
+:root{
+  --cream:#F8F3EA;
+  --brown:#5A3828;
+  --sage:#A8B89A;
+  --text:#3A2A22;
+  --white:#FFFFFF;
+  --soft:#EFE7DC;
+}
 
-    .back {
-      text-decoration: none;
-      background: white;
-      color: var(--brown);
-      padding: 12px 25px;
-      border-radius: 25px;
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-    .container {
-      max-width: 900px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 25px;
-    }
+body{
+  font-family:"Inter",sans-serif;
+  background:var(--cream);
+  color:var(--text);
+  padding:30px;
+}
 
-    .card {
-      background: white;
-      padding: 35px;
-      border-radius: 30px;
-    }
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:40px;
+}
 
-    h1, h2 {
-      color: var(--brown);
-      margin-bottom: 25px;
-    }
+.logo img{
+  width:140px;
+}
 
-    label {
-      display: block;
-      margin-top: 15px;
-      margin-bottom: 8px;
-      font-weight: 500;
-    }
+.back{
+  text-decoration:none;
+  background:white;
+  color:var(--brown);
+  padding:12px 25px;
+  border-radius:25px;
+}
 
-    input, select {
-      width: 100%;
-      padding: 14px;
-      border-radius: 15px;
-      border: 1px solid #ddd;
-      font-size: 15px;
-    }
+.container{
+  max-width:1000px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+}
 
-    button {
-      margin-top: 25px;
-      background: var(--sage);
-      color: white;
-      border: none;
-      padding: 15px 25px;
-      border-radius: 25px;
-      cursor: pointer;
-      font-size: 15px;
-    }
+.card{
+  background:white;
+  padding:35px;
+  border-radius:30px;
+}
 
-    button:hover {
-      opacity: .85;
-    }
+h1,h2{
+  color:var(--brown);
+  margin-bottom:25px;
+}
 
-    /* CROISEMENT */
-    #zoneCroise {
-      display: none;
-      background: var(--cream);
-      padding: 20px;
-      border-radius: 20px;
-      margin-top: 20px;
-    }
+label{
+  display:block;
+  margin-top:15px;
+  margin-bottom:8px;
+  font-weight:500;
+}
 
-    .races {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-    }
+input,select{
+  width:100%;
+  padding:14px;
+  border-radius:15px;
+  border:1px solid #ddd;
+  font-size:15px;
+}
 
-    .races label {
-      background: white;
-      padding: 10px;
-      border-radius: 15px;
-      font-size: 14px;
-    }
+.photo-zone{
+  text-align:center;
+  margin-bottom:20px;
+}
 
-    .races input {
-      width: auto;
-    }
+.photo-zone img{
+  width:130px;
+  height:130px;
+  object-fit:cover;
+  border-radius:50%;
+  display:none;
+  margin:auto;
+}
 
-    /* RESUME */
-    .info {
-      display: flex;
-      justify-content: space-between;
-      padding: 12px 0;
-      border-bottom: 1px solid var(--soft);
-    }
+button{
+  margin-top:25px;
+  width:100%;
+  padding:15px;
+  border:0;
+  border-radius:25px;
+  background:var(--sage);
+  color:white;
+  cursor:pointer;
+  font-size:16px;
+}
 
-    .info:last-child {
-      border: none;
-    }
+#zoneCroisement{
+  display:none;
+  background:var(--cream);
+  padding:20px;
+  border-radius:20px;
+  margin-top:20px;
+}
 
-    .weight {
-      background: var(--cream);
-      padding: 15px;
-      border-radius: 15px;
-      margin-top: 10px;
-      display: flex;
-      justify-content: space-between;
-    }
+.races{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
 
-    .message {
-      text-align: center;
-      margin-top: 15px;
-      color: var(--brown);
-    }
+.races label{
+  background:white;
+  padding:10px;
+  border-radius:15px;
+}
 
-    @media(max-width: 700px) {
-      body {
-        padding: 20px;
-      }
+.races input{
+  width:auto;
+}
 
-      .races {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+.resume p{
+  padding:12px 0;
+  border-bottom:1px solid var(--soft);
+}
+
+.resume strong{
+  color:var(--brown);
+}
+
+.message{
+  text-align:center;
+  margin-top:15px;
+}
+
+@media(max-width:800px){
+  .container{
+    grid-template-columns:1fr;
+  }
+}
+
+</style>
+
 </head>
 
 <body>
 
-  <header>
-    <div class="logo">
-      <img src="logos.png" alt="QOYA">
-    </div>
-    <a class="back" href="dashboard.html">Tableau de bord</a>
-  </header>
-
-  <div class="container">
-
-    <section class="card">
-      <h1>Mon chat</h1>
-
-      <label>Nom du chat</label>
-      <input id="nom" placeholder="Ex : Luna">
-
-      <label>Date de naissance</label>
-      <input id="naissance" type="date">
-
-      <label>Sexe</label>
-      <select id="sexe">
-        <option>Mâle</option>
-        <option>Femelle</option>
-      </select>
-
-      <label>Race principale</label>
-      <select id="race" onchange="afficherCroise()">
-        <option value="">Choisir une race</option>
-        <option>Abyssin</option>
-        <option>American Curl</option>
-        <option>American Shorthair</option>
-        <option>Angora Turc</option>
-        <option>Balinais</option>
-        <option>Bengal</option>
-        <option>Birman</option>
-        <option>Bleu Russe</option>
-        <option>Bombay</option>
-        <option>Bobtail Japonais</option>
-        <option>British Shorthair</option>
-        <option>Burmese</option>
-        <option>Chartreux</option>
-        <option>Chausie</option>
-        <option>Cornish Rex</option>
-        <option>Devon Rex</option>
-        <option>Egyptian Mau</option>
-        <option>Européen</option>
-        <option>Exotic Shorthair</option>
-        <option>Havana Brown</option>
-        <option>Khao Manee</option>
-        <option>Korat</option>
-        <option>LaPerm</option>
-        <option>Maine Coon</option>
-        <option>Manx</option>
-        <option>Munchkin</option>
-        <option>Nebelung</option>
-        <option>Norvégien</option>
-        <option>Ocicat</option>
-        <option>Oriental</option>
-        <option>Persan</option>
-        <option>Peterbald</option>
-        <option>Pixiebob</option>
-        <option>Ragdoll</option>
-        <option>Ragamuffin</option>
-        <option>Sacré de Birmanie</option>
-        <option>Savannah</option>
-        <option>Scottish Fold</option>
-        <option>Selkirk Rex</option>
-        <option>Siamois</option>
-        <option>Sibérien</option>
-        <option>Singapura</option>
-        <option>Sphynx</option>
-        <option>Thai</option>
-        <option>Toyger</option>
-        <option>Turkish Van</option>
-        <option value="Croisé">Croisé</option>
-        <option value="Autre">Autre</option>
-      </select>
-
-      <div id="zoneCroise">
-        <h3>Races du croisement</h3>
-        <div class="races" id="listeCroise"></div>
-      </div>
-
-      <label>Stérilisé</label>
-      <select id="sterilise">
-        <option>Non</option>
-        <option>Oui</option>
-      </select>
-
-      <label>Poids actuel (kg)</label>
-      <input id="poids" type="number" step="0.01">
-
-      <button onclick="enregistrerChat()">Enregistrer</button>
-
-      <div class="message" id="message"></div>
-    </section>
-
-    <section class="card">
-      <h2>Résumé</h2>
-
-      <div class="info">
-        <span>Nom</span>
-        <strong id="rNom">-</strong>
-      </div>
-
-      <div class="info">
-        <span>Âge</span>
-        <strong id="rAge">-</strong>
-      </div>
-
-      <div class="info">
-        <span>Race</span>
-        <strong id="rRace">-</strong>
-      </div>
-
-      <div class="info">
-        <span>Poids</span>
-        <strong id="rPoids">-</strong>
-      </div>
-
-      <div id="historiquePoids"></div>
-    </section>
-
+<header>
+  <div class="logo">
+    <img src="logos.png" alt="QOYA">
   </div>
+  <a class="back" href="dashboard.html">
+    Tableau de bord
+  </a>
+</header>
 
-  <script>
-    // Toutes les races disponibles pour les croisements
-    const racesDisponibles = [
-      "Abyssin", "American Curl", "American Shorthair", "Angora Turc", "Balinais",
-      "Bengal", "Birman", "Bleu Russe", "Bombay", "Bobtail Japonais",
-      "British Shorthair", "Burmese", "Chartreux", "Chausie", "Cornish Rex",
-      "Devon Rex", "Egyptian Mau", "Européen", "Exotic Shorthair", "Havana Brown",
-      "Khao Manee", "Korat", "LaPerm", "Maine Coon", "Manx", "Munchkin",
-      "Nebelung", "Norvégien", "Ocicat", "Oriental", "Persan", "Peterbald",
-      "Pixiebob", "Ragdoll", "Ragamuffin", "Sacré de Birmanie", "Savannah",
-      "Scottish Fold", "Selkirk Rex", "Siamois", "Sibérien", "Singapura",
-      "Sphynx", "Thai", "Toyger", "Turkish Van"
-    ];
+<div class="container">
 
-    // Récupération des données existantes
-    let chat = JSON.parse(localStorage.getItem("qoyaChat")) || {
-      nom: "",
-      naissance: "",
-      sexe: "Mâle",
-      race: "",
-      croisement: [],
-      sterilise: "Non",
-      poids: "",
-      historiquePoids: []
-    };
+  <section class="card">
+    <h1>Mon chat</h1>
 
-    // Afficher la zone croisé
-    function afficherCroise() {
-      let raceChoisie = document.getElementById("race").value;
-      let zone = document.getElementById("zoneCroise");
-      let liste = document.getElementById("listeCroise");
+    <div class="photo-zone">
+      <img id="photoChat">
+      <input type="file" id="photo" accept="image/*" onchange="chargerPhoto()">
+    </div>
 
-      liste.innerHTML = "";
+    <label>Prénom</label>
+    <input id="prenom" placeholder="Ex : Luna">
 
-      if (raceChoisie === "Croisé") {
-        zone.style.display = "block";
+    <label>Date de naissance</label>
+    <input id="naissance" type="date">
 
-        racesDisponibles.forEach(race => {
-          liste.innerHTML += `
-            <label>
-              <input type="checkbox" value="${race}" class="raceCroisee">
-              ${race}
-            </label>
-          `;
-        });
-      } else {
-        zone.style.display = "none";
-      }
-    }
+    <label>Sexe</label>
+    <select id="sexe">
+      <option>Mâle</option>
+      <option>Femelle</option>
+    </select>
 
-    // Enregistrer le profil
-    function enregistrerChat() {
-      chat.nom = document.getElementById("nom").value;
-      chat.naissance = document.getElementById("naissance").value;
-      chat.sexe = document.getElementById("sexe").value;
-      chat.race = document.getElementById("race").value;
-      chat.sterilise = document.getElementById("sterilise").value;
-      chat.poids = document.getElementById("poids").value;
+    <label>Race principale</label>
+    <select id="race" onchange="gestionCroisement()">
+      <option value="">Choisir une race</option>
+      <option>Abyssin</option>
+      <option>American Curl</option>
+      <option>American Shorthair</option>
+      <option>Angora Turc</option>
+      <option>Balinais</option>
+      <option>Bengal</option>
+      <option>Birman</option>
+      <option>Bleu Russe</option>
+      <option>Bombay</option>
+      <option>British Shorthair</option>
+      <option>Burmese</option>
+      <option>Chartreux</option>
+      <option>Cornish Rex</option>
+      <option>Devon Rex</option>
+      <option>Egyptian Mau</option>
+      <option>Européen</option>
+      <option>Exotic Shorthair</option>
+      <option>Maine Coon</option>
+      <option>Norvégien</option>
+      <option>Persan</option>
+      <option>Ragdoll</option>
+      <option>Sacré de Birmanie</option>
+      <option>Savannah</option>
+      <option>Scottish Fold</option>
+      <option>Siamois</option>
+      <option>Sphynx</option>
+      <option>Toyger</option>
+      <option value="Croisé">Croisé</option>
+      <option value="Autre">Autre</option>
+    </select>
 
-      // Récupération des races croisées
-      chat.croisement = [];
-      document.querySelectorAll(".raceCroisee:checked").forEach(r => {
-        chat.croisement.push(r.value);
-      });
+    <div id="zoneCroisement">
+      <h3>Races du croisement</h3>
+      <div class="races" id="listeRaces"></div>
+    </div>
 
-      // Ajout automatique dans l'historique poids
-      if (chat.poids) {
-        let aujourd = new Date().toLocaleDateString("fr-FR");
-        let dernier = chat.historiquePoids[chat.historiquePoids.length - 1];
+    <label>Stérilisé</label>
+    <select id="sterilise">
+      <option>Non</option>
+      <option>Oui</option>
+    </select>
 
-        if (!dernier || dernier.poids != chat.poids) {
-          chat.historiquePoids.push({
-            date: aujourd,
-            poids: chat.poids
-          });
+    <label>Marque de croquettes actuelle</label>
+    <input id="croquettes" placeholder="Ex : Royal Canin">
+
+    <label>Pâtée</label>
+    <select id="patee">
+      <option>Non</option>
+      <option>Oui</option>
+    </select>
+
+    <label>Terrine</label>
+    <select id="terrine">
+      <option>Non</option>
+      <option>Oui</option>
+    </select>
+
+    <button onclick="enregistrerChat()">Enregistrer mon chat</button>
+
+    <div class="message" id="message"></div>
+  </section>
+
+  <section class="card resume">
+    <h2>Résumé</h2>
+
+    <p>Prénom : <strong id="rPrenom">-</strong></p>
+    <p>Âge : <strong id="rAge">-</strong></p>
+    <p>Sexe : <strong id="rSexe">-</strong></p>
+    <p>Race : <strong id="rRace">-</strong></p>
+    <p>Croisement : <strong id="rCroisement">Aucun croisement</strong></p>
+    <p>Stérilisé : <strong id="rSterilise">-</strong></p>
+    <p>Croquettes : <strong id="rCroquettes">-</strong></p>
+    <p>Pâtée : <strong id="rPatee">-</strong></p>
+    <p>Terrine : <strong id="rTerrine">-</strong></p>
+  </section>
+
+</div>
+
+<script>
+
+const races = [
+  "Abyssin",
+  "American Curl",
+  "American Shorthair",
+  "Angora Turc",
+  "Balinais",
+  "Bengal",
+  "Birman",
+  "Bleu Russe",
+  "Bombay",
+  "British Shorthair",
+  "Burmese",
+  "Chartreux",
+  "Cornish Rex",
+  "Devon Rex",
+  "Egyptian Mau",
+  "Européen",
+  "Exotic Shorthair",
+  "Maine Coon",
+  "Norvégien",
+  "Persan",
+  "Ragdoll",
+  "Sacré de Birmanie",
+  "Savannah",
+  "Scottish Fold",
+  "Siamois",
+  "Sphynx",
+  "Toyger"
+];
+
+let chat = JSON.parse(
+  localStorage.getItem("qoyaChat")
+) || {
+  photo:"",
+  prenom:"",
+  naissance:"",
+  sexe:"",
+  race:"",
+  croisement:[],
+  sterilise:"",
+  croquettes:"",
+  patee:"Non",
+  terrine:"Non"
+};
+
+// PHOTO
+function chargerPhoto(){
+  let fichier = document.getElementById("photo").files[0];
+  if(!fichier){
+    return;
+  }
+
+  let lecteur = new FileReader();
+
+  lecteur.onload=function(e){
+    chat.photo=e.target.result;
+    document.getElementById("photoChat").src=e.target.result;
+    document.getElementById("photoChat").style.display="block";
+  }
+
+  lecteur.readAsDataURL(fichier);
+}
+
+// CROISEMENT
+function gestionCroisement(){
+  let choix = document.getElementById("race").value;
+  let zone = document.getElementById("zoneCroisement");
+  let liste = document.getElementById("listeRaces");
+
+  liste.innerHTML="";
+
+  if(choix==="Croisé"){
+    zone.style.display="block";
+
+    races.forEach(race=>{
+      liste.innerHTML += `
+        <label>
+          <input type="checkbox" class="raceChoisie" value="${race}">
+          ${race}
+        </label>
+      `;
+    });
+  } else {
+    zone.style.display="none";
+  }
+}
+
+// ENREGISTREMENT
+function enregistrerChat(){
+  chat.prenom = document.getElementById("prenom").value;
+  chat.naissance = document.getElementById("naissance").value;
+  chat.sexe = document.getElementById("sexe").value;
+  chat.race = document.getElementById("race").value;
+  chat.sterilise = document.getElementById("sterilise").value;
+  chat.croquettes = document.getElementById("croquettes").value;
+  chat.patee = document.getElementById("patee").value;
+  chat.terrine = document.getElementById("terrine").value;
+
+  chat.croisement=[];
+
+  document.querySelectorAll(".raceChoisie:checked").forEach(r=>{
+    chat.croisement.push(r.value);
+  });
+
+  localStorage.setItem("qoyaChat", JSON.stringify(chat));
+
+  afficherResume();
+
+  document.getElementById("message").innerHTML = "Profil enregistré ✓";
+}
+
+// CALCUL AGE
+function calculAge(){
+  if(!chat.naissance){
+    return "-";
+  }
+
+  let naissance = new Date(chat.naissance);
+  let aujourd = new Date();
+
+  let mois = (aujourd.getFullYear() - naissance.getFullYear())*12 + (aujourd.getMonth() - naissance.getMonth());
+
+  if(mois < 12){
+    return mois+" mois";
+  }
+
+  return Math.floor(mois/12)+" ans";
+}
+
+// RESUME
+function afficherResume(){
+  document.getElementById("rPrenom").innerHTML = chat.prenom || "-";
+  document.getElementById("rAge").innerHTML = calculAge();
+  document.getElementById("rSexe").innerHTML = chat.sexe || "-";
+  document.getElementById("rRace").innerHTML = chat.race || "-";
+
+  if(chat.race==="Croisé" && chat.croisement.length){
+    document.getElementById("rCroisement").innerHTML = chat.croisement.join(" × ");
+  } else {
+    document.getElementById("rCroisement").innerHTML = "Aucun croisement";
+  }
+
+  document.getElementById("rSterilise").innerHTML = chat.sterilise || "-";
+  document.getElementById("rCroquettes").innerHTML = chat.croquettes || "-";
+  document.getElementById("rPatee").innerHTML = chat.patee;
+  document.getElementById("rTerrine").innerHTML = chat.terrine;
+
+  if(chat.photo){
+    document.getElementById("photoChat").src = chat.photo;
+    document.getElementById("photoChat").style.display = "block";
+  }
+}
+
+// CHARGEMENT AUTOMATIQUE
+function chargerChat(){
+  prenom.value = chat.prenom;
+  naissance.value = chat.naissance;
+  sexe.value = chat.sexe;
+  race.value = chat.race;
+  sterilise.value = chat.sterilise;
+  croquettes.value = chat.croquettes;
+  patee.value = chat.patee;
+  terrine.value = chat.terrine;
+
+  if(chat.race==="Croisé"){
+    gestionCroisement();
+
+    setTimeout(()=>{
+      document.querySelectorAll(".raceChoisie").forEach(c=>{
+        if(chat.croisement.includes(c.value)){
+          c.checked=true;
         }
-      }
+      });
+    },100);
+  }
 
-      localStorage.setItem("qoyaChat", JSON.stringify(chat));
+  afficherResume();
+}
 
-      document.getElementById("message").innerHTML = "Profil du chat enregistré ✓";
+chargerChat();
 
-      afficherResume();
-    }
-
-    // Charger les informations
-    function chargerChat() {
-      document.getElementById("nom").value = chat.nom || "";
-      document.getElementById("naissance").value = chat.naissance || "";
-      document.getElementById("sexe").value = chat.sexe || "Mâle";
-      document.getElementById("race").value = chat.race || "";
-      document.getElementById("sterilise").value = chat.sterilise || "Non";
-      document.getElementById("poids").value = chat.poids || "";
-
-      if (chat.race === "Croisé") {
-        afficherCroise();
-
-        setTimeout(() => {
-          document.querySelectorAll(".raceCroisee").forEach(cb => {
-            if (chat.croisement.includes(cb.value)) {
-              cb.checked = true;
-            }
-          });
-        }, 100);
-      }
-
-      afficherResume();
-    }
-
-    // Calcul âge
-    function calculAge() {
-      if (!chat.naissance) {
-        return "-";
-      }
-
-      let naissance = new Date(chat.naissance);
-      let maintenant = new Date();
-
-      let mois = (maintenant.getFullYear() - naissance.getFullYear()) * 12 +
-                 (maintenant.getMonth() - naissance.getMonth());
-
-      if (mois < 12) {
-        return mois + " mois";
-      } else {
-        return Math.floor(mois / 12) + " ans";
-      }
-    }
-
-    // Afficher résumé
-    function afficherResume() {
-      document.getElementById("rNom").innerHTML = chat.nom || "-";
-      document.getElementById("rAge").innerHTML = calculAge();
-
-      let raceAffiche = chat.race || "-";
-
-      if (chat.race === "Croisé" && chat.croisement.length) {
-        raceAffiche += " (" + chat.croisement.join(" × ") + ")";
-      }
-
-      document.getElementById("rRace").innerHTML = raceAffiche;
-
-      document.getElementById("rPoids").innerHTML = chat.poids ? chat.poids + " kg" : "-";
-
-      let zone = document.getElementById("historiquePoids");
-      zone.innerHTML = "";
-
-      if (chat.historiquePoids.length) {
-        zone.innerHTML += "<h3 style='margin-top:25px;color:#5A3828'>Historique poids</h3>";
-
-        chat.historiquePoids.forEach(p => {
-          zone.innerHTML += `
-            <div class="weight">
-              <span>${p.date}</span>
-              <strong>${p.poids} kg</strong>
-            </div>
-          `;
-        });
-      }
-    }
-
-    chargerChat();
-  </script>
+</script>
 
 </body>
+
 </html>
