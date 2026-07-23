@@ -43,15 +43,11 @@ color:var(--text);
 
 
 
-/* HEADER */
-
-
 header{
 
 display:flex;
 justify-content:space-between;
 align-items:center;
-
 padding:25px 70px;
 
 }
@@ -76,9 +72,6 @@ border-radius:25px;
 
 
 
-/* CONTENU */
-
-
 main{
 
 padding:40px 70px;
@@ -95,6 +88,7 @@ font-size:40px;
 }
 
 
+
 .welcome p{
 
 color:#756960;
@@ -104,7 +98,6 @@ margin-top:10px;
 
 
 
-/* CARTES */
 
 
 .dashboard-grid{
@@ -112,7 +105,6 @@ margin-top:10px;
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 gap:25px;
-
 margin-top:40px;
 
 }
@@ -160,16 +152,13 @@ line-height:1.6;
 
 
 
-/* INFOS */
 
 
 .info{
 
 display:flex;
 justify-content:space-between;
-
 padding:12px 0;
-
 border-bottom:1px solid #EFE7DC;
 
 }
@@ -182,9 +171,6 @@ border:none;
 
 }
 
-
-
-/* NAVIGATION */
 
 
 .menu{
@@ -202,16 +188,12 @@ flex-wrap:wrap;
 
 text-decoration:none;
 color:var(--brown);
-
 background:white;
-
 padding:15px 25px;
-
 border-radius:25px;
 
-transition:0.2s;
-
 }
+
 
 
 .menu a:hover{
@@ -226,6 +208,7 @@ color:white;
 
 
 @media(max-width:700px){
+
 
 header{
 
@@ -279,6 +262,7 @@ Mon espace
 
 
 
+
 <main>
 
 
@@ -308,34 +292,56 @@ Voici le suivi quotidien de votre compagnon.
 
 
 
+
+
 <div class="card">
 
+
 <i data-lucide="cat"></i>
+
 
 <h2>
 Mon chat
 </h2>
 
 
+
 <div class="info">
-<span>Nom</span>
-<strong>-</strong>
+
+<span>Prénom</span>
+
+<strong id="dashPrenom">-</strong>
+
 </div>
 
 
+
+
 <div class="info">
+
 <span>Âge</span>
-<strong>-</strong>
+
+<strong id="dashAge">-</strong>
+
 </div>
+
+
+
 
 
 <div class="info">
+
 <span>Poids</span>
-<strong>-</strong>
+
+<strong id="dashPoids"></strong>
+
 </div>
 
 
+
 </div>
+
+
 
 
 
@@ -356,8 +362,9 @@ Alimentation
 Suivez les repas, quantités et évolution alimentaire.
 </p>
 
-
 </div>
+
+
 
 
 
@@ -368,6 +375,7 @@ Suivez les repas, quantités et évolution alimentaire.
 <div class="card">
 
 <i data-lucide="heart-pulse"></i>
+
 
 <h2>
 Santé
@@ -387,9 +395,12 @@ Vaccins, rendez-vous vétérinaires et soins.
 
 
 
+
+
 <div class="card">
 
 <i data-lucide="calendar-days"></i>
+
 
 <h2>
 Planning
@@ -409,9 +420,12 @@ Gérez les rappels importants.
 
 
 
+
+
 <div class="card">
 
 <i data-lucide="notebook-pen"></i>
+
 
 <h2>
 Notes
@@ -427,7 +441,10 @@ Gardez l'historique des événements.
 
 
 
+
+
 </section>
+
 
 
 
@@ -478,11 +495,86 @@ Notes
 
 
 
+
 <script>
+
 
 lucide.createIcons();
 
+
+
+
+// récupération des informations du chat
+
+
+let chat = JSON.parse(
+localStorage.getItem("qoyaChat")
+);
+
+
+
+if(chat){
+
+
+
+document.getElementById("dashPrenom").innerHTML =
+chat.prenom || "-";
+
+
+
+
+
+if(chat.naissance){
+
+
+let naissance = new Date(chat.naissance);
+
+let aujourd = new Date();
+
+
+let mois =
+
+(aujourd.getFullYear() - naissance.getFullYear()) * 12
+
++
+
+(aujourd.getMonth() - naissance.getMonth());
+
+
+
+if(mois < 12){
+
+document.getElementById("dashAge").innerHTML =
+mois + " mois";
+
+}
+
+else{
+
+document.getElementById("dashAge").innerHTML =
+Math.floor(mois / 12) + " ans";
+
+}
+
+
+
+}
+
+
+
+
+
+document.getElementById("dashPoids").innerHTML =
+chat.poids || "";
+
+
+
+}
+
+
+
 </script>
+
 
 
 </body>
