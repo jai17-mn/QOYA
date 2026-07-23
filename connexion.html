@@ -48,7 +48,6 @@ align-items:center;
 
 
 
-
 .box{
 
 background:white;
@@ -60,7 +59,6 @@ padding:40px;
 border-radius:30px;
 
 }
-
 
 
 
@@ -82,7 +80,6 @@ width:140px;
 
 
 
-
 h1{
 
 text-align:center;
@@ -92,7 +89,6 @@ color:var(--brown);
 margin-bottom:25px;
 
 }
-
 
 
 
@@ -109,7 +105,6 @@ border-radius:15px;
 border:1px solid #ddd;
 
 }
-
 
 
 
@@ -147,7 +142,6 @@ font-size:14px;
 
 
 
-
 a{
 
 color:var(--brown);
@@ -155,11 +149,11 @@ color:var(--brown);
 }
 
 
-
 </style>
 
 
 </head>
+
 
 
 <body>
@@ -169,11 +163,13 @@ color:var(--brown);
 <div class="box">
 
 
+
 <div class="logo">
 
 <img src="logos.png" alt="QOYA">
 
 </div>
+
 
 
 
@@ -188,6 +184,8 @@ Connexion
 id="email"
 type="email"
 placeholder="Adresse mail">
+
+
 
 
 
@@ -208,7 +206,9 @@ Se connecter
 
 
 
+
 <div class="message" id="message"></div>
+
 
 
 
@@ -224,7 +224,10 @@ Créer un compte
 
 
 
+
 </div>
+
+
 
 
 
@@ -234,59 +237,138 @@ Créer un compte
 <script>
 
 
-function connexion(){
+
+// Si déjà connecté → accès direct
 
 
-let email=document.getElementById("email").value;
-
-let password=document.getElementById("password").value;
-
-
-
-let compte=localStorage.getItem("qoyaUtilisateur");
+let session =
+localStorage.getItem("qoyaConnecte");
 
 
 
-if(!compte){
+if(session==="oui"){
 
-document.getElementById("message").innerHTML=
-"Aucun compte trouvé";
 
-return;
+window.location.href="dashboard.html";
+
 
 }
 
 
 
-compte=JSON.parse(compte);
+
+
+
+
+function connexion(){
+
+
+
+let email =
+document.getElementById("email").value.trim();
+
+
+
+let password =
+document.getElementById("password").value.trim();
+
+
+
+
+
+
+
+let compte =
+localStorage.getItem("qoyaUser");
+
+
+
+
+
+if(!compte){
+
+
+document.getElementById("message").innerHTML =
+"Aucun compte trouvé";
+
+
+return;
+
+
+}
+
+
+
+
+
+compte =
+JSON.parse(compte);
+
+
+
 
 
 
 
 
 if(
-email===compte.email &&
-password===compte.password
+email === compte.email &&
+password === compte.password
+
 ){
 
 
+
+
+
 localStorage.setItem(
-"qoyaSession",
-JSON.stringify(compte)
+
+"qoyaConnecte",
+
+"oui"
+
 );
 
 
 
-document.getElementById("message").innerHTML=
-"Connexion réussie";
+
+
+
+localStorage.setItem(
+
+"qoyaSession",
+
+JSON.stringify(compte)
+
+);
+
+
+
+
+
+
+
+document.getElementById("message").innerHTML =
+
+"Connexion réussie 🐱";
+
+
+
+
+
 
 
 
 setTimeout(()=>{
 
+
 window.location.href="dashboard.html";
 
-},1000);
+
+},800);
+
+
+
 
 
 
@@ -295,11 +377,16 @@ window.location.href="dashboard.html";
 else{
 
 
-document.getElementById("message").innerHTML=
+
+document.getElementById("message").innerHTML =
+
 "Email ou mot de passe incorrect";
 
 
+
 }
+
+
 
 
 
@@ -308,6 +395,7 @@ document.getElementById("message").innerHTML=
 
 
 </script>
+
 
 
 </body>
