@@ -8,218 +8,133 @@
 
 <title>Créer un compte - QOYA</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
-
 <style>
 
-:root {
-
-    --cream:#F8F3EA;
-    --brown:#5A3828;
-    --sage:#A8B89A;
-    --text:#3A2A22;
-
+:root{
+--cream:#F8F3EA;
+--brown:#5A3828;
+--sage:#A8B89A;
 }
 
-
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 
 body{
 
-    min-height:100vh;
-    background:var(--cream);
-    font-family:"Inter",sans-serif;
-    color:var(--text);
+font-family:Arial,sans-serif;
+background:var(--cream);
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
+height:100vh;
 
-}
-
-
-
-/* CONTAINER */
-
-.container{
-
-    width:100%;
-    max-width:450px;
-    padding:20px;
+display:flex;
+justify-content:center;
+align-items:center;
 
 }
 
 
+.box{
 
-/* LOGO */
+background:white;
+
+width:380px;
+
+padding:40px;
+
+border-radius:30px;
+
+}
+
+
 
 .logo{
 
-    text-align:center;
-    margin-bottom:35px;
+text-align:center;
+margin-bottom:25px;
 
 }
 
 
 .logo img{
 
-    width:150px;
+width:140px;
 
 }
 
 
-
-/* CARTE */
-
-.card{
-
-    background:white;
-    padding:45px;
-
-    border-radius:30px;
-
-    box-shadow:0 15px 40px rgba(0,0,0,0.06);
-
-}
-
-
-
-/* TITRES */
 
 h1{
 
-    text-align:center;
-    color:var(--brown);
-
-    font-size:30px;
-
-    margin-bottom:10px;
+color:var(--brown);
+text-align:center;
+margin-bottom:20px;
 
 }
 
-
-.subtitle{
-
-    text-align:center;
-
-    color:#756960;
-
-    font-size:14px;
-
-    margin-bottom:35px;
-
-}
-
-
-
-/* FORMULAIRE */
-
-
-label{
-
-    display:block;
-
-    font-size:14px;
-
-    margin-bottom:8px;
-
-}
 
 
 input{
 
-    width:100%;
+width:100%;
 
-    padding:15px;
+padding:14px;
 
-    border-radius:15px;
+margin-bottom:15px;
 
-    border:1px solid #E6DDD2;
+border-radius:15px;
 
-    margin-bottom:18px;
-
-    font-size:15px;
-
-    outline:none;
+border:1px solid #ddd;
 
 }
 
-
-
-input:focus{
-
-    border-color:var(--sage);
-
-}
-
-
-
-/* BOUTON */
 
 
 button{
 
-    width:100%;
+width:100%;
 
-    background:var(--sage);
+padding:15px;
 
-    color:white;
+border:none;
 
-    border:none;
+border-radius:25px;
 
-    padding:16px;
+background:var(--sage);
 
-    border-radius:30px;
+color:white;
 
-    font-size:16px;
+cursor:pointer;
 
-    cursor:pointer;
-
-}
-
-
-
-button:hover{
-
-    opacity:0.85;
+font-size:16px;
 
 }
 
 
 
-/* LIENS */
+.message{
 
+text-align:center;
 
-.links{
+margin-top:15px;
 
-    text-align:center;
-
-    margin-top:25px;
-
-    font-size:14px;
+font-size:14px;
 
 }
 
 
-.links a{
 
-    color:var(--brown);
+a{
 
-    text-decoration:none;
-
-    font-weight:500;
+color:var(--brown);
 
 }
-
-
 
 </style>
+
 
 </head>
 
@@ -227,106 +142,123 @@ button:hover{
 <body>
 
 
-
-<div class="container">
+<div class="box">
 
 
 <div class="logo">
 
-<img src="logo-qoya.png" alt="Logo QOYA">
+<img src="logos.png">
 
 </div>
 
 
 
-
-<div class="card">
-
-
 <h1>
-Créer votre espace
+Créer un compte
 </h1>
 
 
-<p class="subtitle">
-Commencez le suivi de votre compagnon avec QOYA
-</p>
+
+<input id="prenom" placeholder="Prénom">
+
+
+<input id="email" type="email" placeholder="Adresse mail">
+
+
+<input id="password" type="password" placeholder="Mot de passe">
 
 
 
+<button onclick="creerCompte()">
 
-<form action="dashboard.html">
-
-
-
-<label>
-Prénom
-</label>
-
-<input 
-type="text"
-placeholder="Votre prénom">
-
-
-
-<label>
-Adresse email
-</label>
-
-<input 
-type="email"
-placeholder="Votre adresse email">
-
-
-
-<label>
-Mot de passe
-</label>
-
-<input 
-type="password"
-placeholder="Créer un mot de passe">
-
-
-
-<label>
-Confirmer le mot de passe
-</label>
-
-<input 
-type="password"
-placeholder="Confirmer le mot de passe">
-
-
-
-<button>
 Créer mon compte
+
 </button>
 
 
 
-</form>
+<div class="message" id="message"></div>
 
 
 
-<div class="links">
+<p style="text-align:center;margin-top:20px">
 
-<p>
 Déjà un compte ?
+
 <a href="connexion.html">
-Se connecter
+Connexion
 </a>
+
 </p>
 
-</div>
-
-
-
-</div>
 
 
 </div>
 
+
+
+
+
+<script>
+
+
+function creerCompte(){
+
+
+let prenom=document.getElementById("prenom").value;
+
+let email=document.getElementById("email").value;
+
+let password=document.getElementById("password").value;
+
+
+
+if(prenom=="" || email=="" || password==""){
+
+document.getElementById("message").innerHTML=
+"Veuillez remplir tous les champs";
+
+return;
+
+}
+
+
+
+let utilisateur={
+
+prenom:prenom,
+
+email:email,
+
+password:password
+
+};
+
+
+
+localStorage.setItem(
+"qoyaUtilisateur",
+JSON.stringify(utilisateur)
+);
+
+
+
+document.getElementById("message").innerHTML=
+"Compte créé avec succès";
+
+
+setTimeout(()=>{
+
+window.location.href="connexion.html";
+
+},1000);
+
+
+
+}
+
+
+</script>
 
 
 </body>
