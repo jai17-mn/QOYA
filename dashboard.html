@@ -22,15 +22,19 @@
 --sage:#A8B89A;
 --text:#3A2A22;
 --white:#FFFFFF;
+--soft:#EFE7DC;
 
 }
 
 
 *{
+
 margin:0;
 padding:0;
 box-sizing:border-box;
+
 }
+
 
 
 body{
@@ -41,6 +45,10 @@ color:var(--text);
 
 }
 
+
+
+
+/* HEADER */
 
 
 header{
@@ -62,6 +70,7 @@ width:140px;
 
 
 
+
 .profile{
 
 background:white;
@@ -72,11 +81,19 @@ border-radius:25px;
 
 
 
+
+
+
+
+/* CONTENU */
+
+
 main{
 
 padding:40px 70px;
 
 }
+
 
 
 
@@ -86,6 +103,7 @@ color:var(--brown);
 font-size:40px;
 
 }
+
 
 
 
@@ -100,6 +118,11 @@ margin-top:10px;
 
 
 
+
+
+/* CARTES */
+
+
 .dashboard-grid{
 
 display:grid;
@@ -111,6 +134,7 @@ margin-top:40px;
 
 
 
+
 .card{
 
 background:white;
@@ -118,6 +142,7 @@ border-radius:25px;
 padding:30px;
 
 }
+
 
 
 
@@ -132,13 +157,15 @@ margin-bottom:20px;
 
 
 
+
 .card h2{
 
 color:var(--brown);
 font-size:22px;
-margin-bottom:15px;
+margin-bottom:20px;
 
 }
+
 
 
 
@@ -154,12 +181,38 @@ line-height:1.6;
 
 
 
+
+
+/* LISTE CHATS */
+
+
+.chat-box{
+
+background:var(--cream);
+padding:18px;
+border-radius:20px;
+margin-bottom:15px;
+
+}
+
+
+
+.chat-name{
+
+font-size:18px;
+font-weight:600;
+color:var(--brown);
+
+}
+
+
+
 .info{
 
 display:flex;
 justify-content:space-between;
-padding:12px 0;
-border-bottom:1px solid #EFE7DC;
+padding:10px 0;
+border-bottom:1px solid var(--soft);
 
 }
 
@@ -173,6 +226,32 @@ border:none;
 
 
 
+
+
+
+.add-chat{
+
+display:inline-block;
+margin-top:15px;
+background:var(--sage);
+color:white;
+padding:12px 22px;
+border-radius:25px;
+text-decoration:none;
+
+}
+
+
+
+
+
+
+
+
+
+/* NAVIGATION */
+
+
 .menu{
 
 display:flex;
@@ -181,6 +260,8 @@ margin-top:40px;
 flex-wrap:wrap;
 
 }
+
+
 
 
 
@@ -196,12 +277,15 @@ border-radius:25px;
 
 
 
+
 .menu a:hover{
 
 background:var(--sage);
 color:white;
 
 }
+
+
 
 
 
@@ -217,6 +301,7 @@ padding:20px;
 }
 
 
+
 main{
 
 padding:30px 20px;
@@ -224,7 +309,11 @@ padding:30px 20px;
 }
 
 
+
 }
+
+
+
 
 
 
@@ -249,6 +338,7 @@ padding:30px 20px;
 </div>
 
 
+
 <div class="profile">
 
 Mon espace
@@ -271,16 +361,22 @@ Mon espace
 
 
 <h1>
+
 Bonjour
+
 </h1>
 
 
 <p>
-Voici le suivi quotidien de votre compagnon.
+
+Voici le suivi quotidien de vos compagnons.
+
 </p>
 
 
 </section>
+
+
 
 
 
@@ -301,66 +397,26 @@ Voici le suivi quotidien de votre compagnon.
 
 
 <h2>
-Mon chat
+
+Mes chats
+
 </h2>
 
 
 
-<div class="info">
-
-<span>Prénom</span>
-
-<strong id="dashPrenom">-</strong>
-
-</div>
-
-
-
-
-<div class="info">
-
-<span>Âge</span>
-
-<strong id="dashAge">-</strong>
-
-</div>
-
-
-
-
-
-<div class="info">
-
-<span>Poids</span>
-
-<strong id="dashPoids"></strong>
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<div class="card">
-
-<i data-lucide="utensils"></i>
-
-<h2>
-Alimentation
-</h2>
+<div id="listeChatsDashboard">
 
 
 <p>
-Suivez les repas, quantités et évolution alimentaire.
+
+Chargement...
+
 </p>
+
+
+</div>
+
+
 
 </div>
 
@@ -373,18 +429,57 @@ Suivez les repas, quantités et évolution alimentaire.
 
 
 <div class="card">
+
+
+<i data-lucide="utensils"></i>
+
+
+<h2>
+
+Alimentation
+
+</h2>
+
+
+
+<p>
+
+Suivez les repas, quantités et évolution alimentaire.
+
+</p>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="card">
+
 
 <i data-lucide="heart-pulse"></i>
 
 
 <h2>
+
 Santé
+
 </h2>
 
 
+
 <p>
+
 Vaccins, rendez-vous vétérinaires et soins.
+
 </p>
+
 
 
 </div>
@@ -398,18 +493,25 @@ Vaccins, rendez-vous vétérinaires et soins.
 
 
 <div class="card">
+
 
 <i data-lucide="calendar-days"></i>
 
 
 <h2>
+
 Planning
+
 </h2>
 
 
+
 <p>
+
 Gérez les rappels importants.
+
 </p>
+
 
 
 </div>
@@ -424,17 +526,24 @@ Gérez les rappels importants.
 
 <div class="card">
 
+
 <i data-lucide="notebook-pen"></i>
 
 
 <h2>
+
 Notes
+
 </h2>
 
 
+
 <p>
+
 Gardez l'historique des événements.
+
 </p>
+
 
 
 </div>
@@ -457,27 +566,41 @@ Gardez l'historique des événements.
 
 
 <a href="mon-chat.html">
+
 Mon chat
+
 </a>
+
 
 
 <a href="alimentation.html">
+
 Alimentation
+
 </a>
+
 
 
 <a href="sante.html">
+
 Santé
+
 </a>
+
 
 
 <a href="planning.html">
+
 Planning
+
 </a>
 
 
+
 <a href="notes.html">
+
 Notes
+
 </a>
 
 
@@ -489,13 +612,6 @@ Notes
 
 
 </main>
-
-
-
-
-
-
-
 <script>
 
 
@@ -504,21 +620,68 @@ lucide.createIcons();
 
 
 
-// récupération des informations du chat
+// Récupération des chats enregistrés
 
 
-let chat = JSON.parse(
-localStorage.getItem("qoyaChat")
+let chats = JSON.parse(
+localStorage.getItem("qoyaChats")
+)
+|| [];
+
+
+
+let zone = document.getElementById(
+"listeChatsDashboard"
 );
 
 
 
-if(chat){
 
 
 
-document.getElementById("dashPrenom").innerHTML =
-chat.prenom || "-";
+
+if(chats.length === 0){
+
+
+
+zone.innerHTML = `
+
+
+<p>
+
+Aucun chat enregistré.
+
+</p>
+
+
+
+<a class="add-chat" href="mon-chat.html">
+
+Ajouter un chat
+
+</a>
+
+
+`;
+
+
+
+}
+
+else{
+
+
+
+zone.innerHTML = "";
+
+
+
+
+chats.forEach(chat => {
+
+
+
+let age = "";
 
 
 
@@ -527,45 +690,109 @@ chat.prenom || "-";
 if(chat.naissance){
 
 
+
 let naissance = new Date(chat.naissance);
 
 let aujourd = new Date();
 
 
+
 let mois =
 
-(aujourd.getFullYear() - naissance.getFullYear()) * 12
+(aujourd.getFullYear() -
+naissance.getFullYear()) * 12
 
 +
 
-(aujourd.getMonth() - naissance.getMonth());
+(aujourd.getMonth() -
+naissance.getMonth());
+
 
 
 
 if(mois < 12){
 
-document.getElementById("dashAge").innerHTML =
-mois + " mois";
+
+age = mois + " mois";
+
 
 }
 
 else{
 
-document.getElementById("dashAge").innerHTML =
-Math.floor(mois / 12) + " ans";
 
-}
-
+age = Math.floor(mois / 12) + " ans";
 
 
 }
 
 
 
+}
+
+else{
 
 
-document.getElementById("dashPoids").innerHTML =
-chat.poids || "";
+age = "-";
+
+
+}
+
+
+
+
+
+
+
+zone.innerHTML += `
+
+
+
+<div class="chat-box">
+
+
+<div class="chat-name">
+
+🐱 ${chat.prenom || "Sans prénom"}
+
+</div>
+
+
+
+
+<div class="info">
+
+<span>Âge</span>
+
+<strong>${age}</strong>
+
+</div>
+
+
+
+
+
+<div class="info">
+
+<span>Poids</span>
+
+<strong>${chat.poids || ""}</strong>
+
+</div>
+
+
+
+</div>
+
+
+
+`;
+
+
+
+
+
+});
 
 
 
