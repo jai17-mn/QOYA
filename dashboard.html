@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tableau de bord - QOYA</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script src="https://unpkg.com/lucide@latest"></script>
+
+
+<style>
+
+:root{
+
+--cream:#F8F3EA;
+--brown:#5A3828;
+--sage:#A8B89A;
+--text:#3A2A22;
+--white:#FFFFFF;
+
+}
+
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+
+body{
+
+font-family:"Inter",sans-serif;
+background:var(--cream);
+color:var(--text);
+
+}
+
+
+
+/* HEADER */
+
+
+header{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:25px 70px;
+
+}
+
+
+
+.logo img{
+
+width:140px;
+
+}
+
+
+
+.profile{
+
+background:white;
+padding:12px 20px;
+border-radius:25px;
+
+}
+
+
+
+/* CONTENU */
+
+
+main{
+
+padding:40px 70px;
+
+}
+
+
+
+.welcome h1{
+
+color:var(--brown);
+font-size:40px;
+
+}
+
+
+.welcome p{
+
+color:#756960;
+margin-top:10px;
+
+}
+
+
+
+/* CARTES */
+
+
+.dashboard-grid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+
+margin-top:40px;
+
+}
+
+
+
+.card{
+
+background:white;
+border-radius:25px;
+padding:30px;
+
+}
+
+
+
+.card svg{
+
+width:35px;
+height:35px;
+color:var(--sage);
+margin-bottom:20px;
+
+}
+
+
+
+.card h2{
+
+color:var(--brown);
+font-size:22px;
+margin-bottom:15px;
+
+}
+
+
+
+.card p{
+
+color:#756960;
+font-size:14px;
+line-height:1.6;
+
+}
+
+
+
+/* INFOS */
+
+
+.info{
+
+display:flex;
+justify-content:space-between;
+
+padding:12px 0;
+
+border-bottom:1px solid #EFE7DC;
+
+}
+
+
+
+.info:last-child{
+
+border:none;
+
+}
+
+
+
+/* NAVIGATION */
+
+
+.menu{
+
+display:flex;
+gap:25px;
+margin-top:40px;
+
+}
+
+
+
+.menu a{
+
+text-decoration:none;
+color:var(--brown);
+
+background:white;
+
+padding:15px 25px;
+
+border-radius:25px;
+
+}
+
+
+
+
+@media(max-width:700px){
+
+header{
+
+padding:20px;
+
+}
+
+
+main{
+
+padding:30px 20px;
+
+}
+
+.menu{
+
+flex-wrap:wrap;
+
+}
+
+}
+
+
+</style>
+
+
+</head>
+
+
+
+<body>
+
+
+
+<header>
+
+
+<div class="logo">
+
+<img src="logo-qoya.png" alt="Logo QOYA">
+
+</div>
+
+
+<div class="profile">
+
+Mon espace
+
+</div>
+
+
+</header>
+
+
+
+
+<main>
+
+
+
+<section class="welcome">
+
+
+<h1>
+Bonjour 👋
+</h1>
+
+
+<p>
+Voici le suivi quotidien de votre compagnon.
+</p>
+
+
+</section>
+
+
+
+
+
+<section class="dashboard-grid">
+
+
+
+<div class="card">
+
+<i data-lucide="cat"></i>
+
+<h2>
+Mon chat
+</h2>
+
+<div class="info">
+<span>Nom</span>
+<strong>-</strong>
+</div>
+
+<div class="info">
+<span>Âge</span>
+<strong>-</strong>
+</div>
+
+<div class="info">
+<span>Poids</span>
+<strong>-</strong>
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<i data-lucide="utensils"></i>
+
+<h2>
+Alimentation
+</h2>
+
+<p>
+Aucune information enregistrée pour le moment.
+</p>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<i data-lucide="heart-pulse"></i>
+
+<h2>
+Santé
+</h2>
+
+<p>
+Aucun rappel médical enregistré.
+</p>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<i data-lucide="calendar-days"></i>
+
+<h2>
+Planning
+</h2>
+
+<p>
+Aucun événement prévu.
+</p>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<i data-lucide="notebook-pen"></i>
+
+<h2>
+Notes
+</h2>
+
+<p>
+Ajoutez vos observations quotidiennes.
+</p>
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+<nav class="menu">
+
+<a href="#">
+Mon chat
+</a>
+
+<a href="#">
+Alimentation
+</a>
+
+<a href="#">
+Santé
+</a>
+
+<a href="#">
+Planning
+</a>
+
+<a href="#">
+Notes
+</a>
+
+
+</nav>
+
+
+
+</main>
+
+
+
+
+<script>
+
+lucide.createIcons();
+
+</script>
+
+
+</body>
+
+</html>
