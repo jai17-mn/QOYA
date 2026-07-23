@@ -21,20 +21,16 @@
 --brown:#5A3828;
 --sage:#A8B89A;
 --text:#3A2A22;
---white:#FFFFFF;
 --soft:#EFE7DC;
 
 }
 
 
 *{
-
 margin:0;
 padding:0;
 box-sizing:border-box;
-
 }
-
 
 
 body{
@@ -45,10 +41,6 @@ color:var(--text);
 
 }
 
-
-
-
-/* HEADER */
 
 
 header{
@@ -70,7 +62,6 @@ width:140px;
 
 
 
-
 .profile{
 
 background:white;
@@ -82,18 +73,11 @@ border-radius:25px;
 
 
 
-
-
-
-/* CONTENU */
-
-
 main{
 
 padding:40px 70px;
 
 }
-
 
 
 
@@ -106,7 +90,6 @@ font-size:40px;
 
 
 
-
 .welcome p{
 
 color:#756960;
@@ -116,11 +99,6 @@ margin-top:10px;
 
 
 
-
-
-
-
-/* CARTES */
 
 
 .dashboard-grid{
@@ -172,7 +150,6 @@ margin-bottom:20px;
 .card p{
 
 color:#756960;
-font-size:14px;
 line-height:1.6;
 
 }
@@ -180,20 +157,27 @@ line-height:1.6;
 
 
 
-
-
-
-/* LISTE CHATS */
-
-
 .chat-box{
 
 background:var(--cream);
-padding:18px;
+padding:20px;
 border-radius:20px;
 margin-bottom:15px;
 
 }
+
+
+
+.chat-photo{
+
+width:80px;
+height:80px;
+border-radius:50%;
+object-fit:cover;
+margin-bottom:10px;
+
+}
+
 
 
 
@@ -202,8 +186,10 @@ margin-bottom:15px;
 font-size:18px;
 font-weight:600;
 color:var(--brown);
+margin-bottom:10px;
 
 }
+
 
 
 
@@ -217,7 +203,6 @@ border-bottom:1px solid var(--soft);
 }
 
 
-
 .info:last-child{
 
 border:none;
@@ -227,29 +212,20 @@ border:none;
 
 
 
+.button{
 
-
-.add-chat{
-
-display:inline-block;
+display:block;
 margin-top:15px;
 background:var(--sage);
 color:white;
-padding:12px 22px;
+padding:12px 20px;
 border-radius:25px;
 text-decoration:none;
+text-align:center;
 
 }
 
 
-
-
-
-
-
-
-
-/* NAVIGATION */
 
 
 .menu{
@@ -260,8 +236,6 @@ margin-top:40px;
 flex-wrap:wrap;
 
 }
-
-
 
 
 
@@ -277,7 +251,6 @@ border-radius:25px;
 
 
 
-
 .menu a:hover{
 
 background:var(--sage);
@@ -288,18 +261,13 @@ color:white;
 
 
 
-
-
-
 @media(max-width:700px){
-
 
 header{
 
 padding:20px;
 
 }
-
 
 
 main{
@@ -309,23 +277,15 @@ padding:30px 20px;
 }
 
 
-
 }
-
-
-
-
 
 
 </style>
 
-
 </head>
 
 
-
 <body>
-
 
 
 <header>
@@ -352,7 +312,6 @@ Mon espace
 
 
 
-
 <main>
 
 
@@ -362,7 +321,7 @@ Mon espace
 
 <h1>
 
-Bonjour
+Bonjour 👋
 
 </h1>
 
@@ -382,11 +341,7 @@ Voici le suivi quotidien de vos compagnons.
 
 
 
-
-
 <section class="dashboard-grid">
-
-
 
 
 
@@ -406,21 +361,13 @@ Mes chats
 
 <div id="listeChatsDashboard">
 
-
-<p>
-
 Chargement...
 
-</p>
-
-
 </div>
 
 
 
 </div>
-
-
 
 
 
@@ -441,18 +388,14 @@ Alimentation
 </h2>
 
 
-
 <p>
 
-Suivez les repas, quantités et évolution alimentaire.
+Suivez les repas, les quantités et l'évolution alimentaire.
 
 </p>
 
 
-
 </div>
-
-
 
 
 
@@ -473,7 +416,6 @@ Santé
 </h2>
 
 
-
 <p>
 
 Vaccins, rendez-vous vétérinaires et soins.
@@ -481,10 +423,7 @@ Vaccins, rendez-vous vétérinaires et soins.
 </p>
 
 
-
 </div>
-
-
 
 
 
@@ -505,7 +444,6 @@ Planning
 </h2>
 
 
-
 <p>
 
 Gérez les rappels importants.
@@ -513,10 +451,7 @@ Gérez les rappels importants.
 </p>
 
 
-
 </div>
-
-
 
 
 
@@ -537,7 +472,6 @@ Notes
 </h2>
 
 
-
 <p>
 
 Gardez l'historique des événements.
@@ -545,16 +479,11 @@ Gardez l'historique des événements.
 </p>
 
 
-
 </div>
 
 
 
-
-
 </section>
-
-
 
 
 
@@ -572,13 +501,11 @@ Mon chat
 </a>
 
 
-
 <a href="alimentation.html">
 
 Alimentation
 
 </a>
-
 
 
 <a href="sante.html">
@@ -588,13 +515,11 @@ Santé
 </a>
 
 
-
 <a href="planning.html">
 
 Planning
 
 </a>
-
 
 
 <a href="notes.html">
@@ -604,14 +529,18 @@ Notes
 </a>
 
 
-
 </nav>
 
 
 
-
-
 </main>
+
+
+
+
+
+
+
 <script>
 
 
@@ -619,14 +548,11 @@ lucide.createIcons();
 
 
 
-
-// Récupération des chats enregistrés
-
-
 let chats = JSON.parse(
+
 localStorage.getItem("qoyaChats")
-)
-|| [];
+
+) || [];
 
 
 
@@ -638,10 +564,59 @@ let zone = document.getElementById(
 
 
 
+function calculAge(date){
+
+
+if(!date){
+
+return "-";
+
+}
+
+
+let naissance = new Date(date);
+
+let aujourd = new Date();
+
+
+
+let mois =
+
+(aujourd.getFullYear()
+-
+naissance.getFullYear()) * 12
+
++
+
+(aujourd.getMonth()
+-
+naissance.getMonth());
+
+
+
+if(mois < 12){
+
+return mois + " mois";
+
+}
+
+
+return Math.floor(mois / 12) + " ans";
+
+
+}
+
+
+
+
+
+
+
+function afficherChats(){
+
 
 
 if(chats.length === 0){
-
 
 
 zone.innerHTML = `
@@ -654,10 +629,9 @@ Aucun chat enregistré.
 </p>
 
 
+<a class="button" href="mon-chat.html">
 
-<a class="add-chat" href="mon-chat.html">
-
-Ajouter un chat
+Ajouter mon premier chat
 
 </a>
 
@@ -665,76 +639,7 @@ Ajouter un chat
 `;
 
 
-
-}
-
-else{
-
-
-
-zone.innerHTML = "";
-
-
-
-
-chats.forEach(chat => {
-
-
-
-let age = "";
-
-
-
-
-
-if(chat.naissance){
-
-
-
-let naissance = new Date(chat.naissance);
-
-let aujourd = new Date();
-
-
-
-let mois =
-
-(aujourd.getFullYear() -
-naissance.getFullYear()) * 12
-
-+
-
-(aujourd.getMonth() -
-naissance.getMonth());
-
-
-
-
-if(mois < 12){
-
-
-age = mois + " mois";
-
-
-}
-
-else{
-
-
-age = Math.floor(mois / 12) + " ans";
-
-
-}
-
-
-
-}
-
-else{
-
-
-age = "-";
-
+return;
 
 }
 
@@ -742,13 +647,27 @@ age = "-";
 
 
 
+zone.innerHTML="";
+
+
+
+
+chats.forEach((chat,index)=>{
 
 
 zone.innerHTML += `
 
 
-
 <div class="chat-box">
+
+
+
+${chat.photo ? `
+
+<img class="chat-photo" src="${chat.photo}">
+
+` : ""}
+
 
 
 <div class="chat-name">
@@ -760,11 +679,16 @@ zone.innerHTML += `
 
 
 
+
 <div class="info">
 
 <span>Âge</span>
 
-<strong>${age}</strong>
+<strong>
+
+${calculAge(chat.naissance)}
+
+</strong>
 
 </div>
 
@@ -776,9 +700,38 @@ zone.innerHTML += `
 
 <span>Poids</span>
 
-<strong>${chat.poids || ""}</strong>
+<strong>
+
+${chat.poids || "-"}
+
+</strong>
 
 </div>
+
+
+
+
+
+<div class="info">
+
+<span>Race</span>
+
+<strong>
+
+${chat.race || "-"}
+
+</strong>
+
+</div>
+
+
+
+
+<a class="button" href="mon-chat.html?chat=${index}">
+
+Modifier
+
+</a>
 
 
 
@@ -790,9 +743,24 @@ zone.innerHTML += `
 
 
 
-
-
 });
+
+
+
+
+
+
+zone.innerHTML += `
+
+
+<a class="button" href="mon-chat.html">
+
++ Ajouter un autre chat
+
+</a>
+
+
+`;
 
 
 
@@ -800,8 +768,13 @@ zone.innerHTML += `
 
 
 
-</script>
 
+
+afficherChats();
+
+
+
+</script>
 
 
 </body>
