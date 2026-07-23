@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mon chat - QOYA</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+
+<style>
+
+:root{
+--cream:#F8F3EA;
+--brown:#5A3828;
+--sage:#A8B89A;
+--text:#3A2A22;
+--white:#FFFFFF;
+--soft:#EFE7DC;
+}
+
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+
+body{
+
+font-family:"Inter",sans-serif;
+background:var(--cream);
+color:var(--text);
+padding:30px;
+
+}
+
+
+
+header{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:40px;
+
+}
+
+
+
+.logo img{
+
+width:140px;
+
+}
+
+
+
+.back{
+
+text-decoration:none;
+background:white;
+color:var(--brown);
+padding:12px 25px;
+border-radius:25px;
+
+}
+
+
+
+.container{
+
+max-width:1100px;
+margin:auto;
+
+}
+
+
+
+.card{
+
+background:white;
+padding:35px;
+border-radius:30px;
+margin-bottom:25px;
+
+}
+
+
+
+h1,h2{
+
+color:var(--brown);
+margin-bottom:25px;
+
+}
+
+
+
+/* LISTE CHATS */
+
+
+.chat-list{
+
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+
+}
+
+
+
+.chat-item{
+
+background:var(--cream);
+padding:15px 25px;
+border-radius:25px;
+cursor:pointer;
+border:none;
+color:var(--brown);
+font-size:15px;
+
+}
+
+
+
+.chat-item.active{
+
+background:var(--sage);
+color:white;
+
+}
+
+
+
+.add-chat{
+
+background:white;
+border:2px dashed var(--sage);
+padding:15px 25px;
+border-radius:25px;
+cursor:pointer;
+color:var(--brown);
+
+}
+
+
+
+/* FORMULAIRE */
+
+
+label{
+
+display:block;
+margin-top:15px;
+margin-bottom:8px;
+font-weight:500;
+
+}
+
+
+
+input,select{
+
+width:100%;
+padding:14px;
+border-radius:15px;
+border:1px solid #ddd;
+font-size:15px;
+
+}
+
+
+
+.photo-zone{
+
+text-align:center;
+
+}
+
+
+
+.photo-zone img{
+
+width:130px;
+height:130px;
+border-radius:50%;
+object-fit:cover;
+display:none;
+margin:auto;
+
+}
+
+
+
+button.save{
+
+margin-top:25px;
+width:100%;
+padding:15px;
+border:none;
+border-radius:25px;
+background:var(--sage);
+color:white;
+cursor:pointer;
+font-size:16px;
+
+}
+
+
+.message{
+
+text-align:center;
+margin-top:15px;
+
+}
+
+
+
+.resume p{
+
+padding:12px 0;
+border-bottom:1px solid var(--soft);
+
+}
+
+
+
+.resume strong{
+
+color:var(--brown);
+
+}
+
+
+
+#zoneCroisement{
+
+display:none;
+background:var(--cream);
+padding:20px;
+border-radius:20px;
+margin-top:20px;
+
+}
+
+
+
+.races{
+
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+
+}
+
+
+
+.races label{
+
+background:white;
+padding:10px;
+border-radius:15px;
+
+}
+
+
+
+.races input{
+
+width:auto;
+
+}
+
+
+
+@media(max-width:800px){
+
+body{
+
+padding:20px;
+
+}
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+
+<div class="logo">
+
+<img src="logos.png" alt="QOYA">
+
+</div>
+
+
+<a class="back" href="dashboard.html">
+
+Tableau de bord
+
+</a>
+
+
+</header>
+
+
+
+<div class="container">
+<section class="card">
+
+<h1>
+Mes chats 🐱
+</h1>
+
+
+<div class="chat-list" id="listeChats">
+
+</div>
+
+
+</section>
+
+
+
+
+
+<section class="card">
+
+
+<h2>
+Informations du chat
+</h2>
+
+
+
+<div class="photo-zone">
+
+
+<img id="photoChat">
+
+
+<input 
+type="file"
+id="photo"
+accept="image/*"
+onchange="chargerPhoto()">
+
+
+</div>
+
+
+
+
+
+<label>
+Prénom
+</label>
+
+<input id="prenom" placeholder="Ex : Luna">
+
+
+
+
+
+<label>
+Date de naissance
+</label>
+
+<input id="naissance" type="date">
+
+
+
+
+
+<label>
+Sexe
+</label>
+
+<select id="sexe">
+
+<option>Mâle</option>
+
+<option>Femelle</option>
+
+</select>
+
+
+
+
+
+
+
+<label>
+Race principale
+</label>
+
+
+<select id="race" onchange="gestionCroisement()">
+
+<option value="">
+Choisir une race
+</option>
+
+</select>
+
+
+
+
+
+<div id="zoneCroisement">
+
+<h3>
+Races du croisement
+</h3>
+
+
+<div class="races" id="listeRaces"></div>
+
+
+</div>
+
+
+
+
+
+
+<label>
+Stérilisé
+</label>
+
+
+<select id="sterilise">
+
+<option value="Non">
+Non
+</option>
+
+<option value="Oui">
+Oui
+</option>
+
+
+</select>
+
+
+
+
+
+
+
+<label>
+Poids actuel (facultatif)
+</label>
+
+
+<input 
+id="poids"
+placeholder="Ex : 3,5 kg">
+
+
+
+
+
+
+<h2 style="margin-top:35px">
+
+🍽️ Alimentation
+
+</h2>
+
+
+
+
+
+
+<label>
+Type d'alimentation
+</label>
+
+
+<select id="typeAlimentation">
+
+
+<option>
+Croquettes uniquement
+</option>
+
+<option>
+Croquettes + pâtée
+</option>
+
+<option>
+Croquettes + terrine
+</option>
+
+<option>
+Pâtée uniquement
+</option>
+
+<option>
+Alimentation mixte
+</option>
+
+
+</select>
+
+
+
+
+
+
+
+<label>
+Marque de croquettes actuelle
+</label>
+
+
+<input 
+id="croquettes"
+placeholder="Ex : Royal Canin">
+
+
+
+
+
+
+
+<label>
+Gamme
+</label>
+
+
+<input 
+id="gamme"
+placeholder="Ex : Kitten, Adult, Sterilised">
+
+
+
+
+
+
+
+<label>
+Pâtée
+</label>
+
+
+<select id="patee">
+
+<option value="Non">
+Non
+</option>
+
+<option value="Oui">
+Oui
+</option>
+
+
+</select>
+
+
+
+
+
+
+
+
+<label>
+Terrine
+</label>
+
+
+<select id="terrine">
+
+<option value="Non">
+Non
+</option>
+
+<option value="Oui">
+Oui
+</option>
+
+
+</select>
+
+
+
+
+
+
+
+<button class="save" onclick="enregistrerChat()">
+
+Enregistrer mon chat
+
+</button>
+
+
+
+<div class="message" id="message"></div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<section class="card resume">
+
+
+<h2>
+Résumé
+</h2>
+
+
+
+<p>
+Prénom :
+<strong id="rPrenom">-</strong>
+</p>
+
+
+
+<p>
+Âge :
+<strong id="rAge">-</strong>
+</p>
+
+
+
+<p>
+Sexe :
+<strong id="rSexe">-</strong>
+</p>
+
+
+
+
+<p>
+Race :
+<strong id="rRace">-</strong>
+</p>
+
+
+
+
+<p>
+Croisement :
+<strong id="rCroisement">
+Aucun
+</strong>
+</p>
+
+
+
+
+
+<p>
+Stérilisé :
+<strong id="rSterilise">
+-
+</strong>
+</p>
+
+
+
+
+<p>
+Poids :
+<strong id="rPoids">
+-
+</strong>
+</p>
+
+
+
+
+<p>
+Croquettes :
+<strong id="rCroquettes">
+-
+</strong>
+</p>
+
+
+
+
+<p>
+Gamme :
+<strong id="rGamme">
+-
+</strong>
+</p>
+
+
+
+
+<p>
+Pâtée :
+<strong id="rPatee">
+-
+</strong>
+</p>
+
+
+
+
+<p>
+Terrine :
+<strong id="rTerrine">
+-
+</strong>
+</p>
+
+
+
+</section>
+
+
+</div>
