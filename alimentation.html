@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Alimentation - QOYA</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<style>
+
+:root{
+--cream:#F8F3EA;
+--brown:#5A3828;
+--sage:#A8B89A;
+--text:#3A2A22;
+--white:#FFFFFF;
+--soft:#EFE7DC;
+}
+
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+
+body{
+font-family:"Inter",sans-serif;
+background:var(--cream);
+color:var(--text);
+}
+
+
+/* HEADER */
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:25px 70px;
+}
+
+
+.logo img{
+width:140px;
+}
+
+
+.back{
+text-decoration:none;
+background:white;
+color:var(--brown);
+padding:12px 25px;
+border-radius:25px;
+}
+
+
+
+/* PAGE */
+
+
+main{
+padding:40px 70px;
+}
+
+
+h1{
+font-size:40px;
+color:var(--brown);
+}
+
+
+.subtitle{
+margin-top:10px;
+color:#756960;
+}
+
+
+
+/* CARTES */
+
+
+.grid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(330px,1fr));
+gap:25px;
+margin-top:40px;
+
+}
+
+
+
+.card{
+
+background:white;
+padding:35px;
+border-radius:30px;
+
+}
+
+
+
+.card h2{
+
+color:var(--brown);
+margin-bottom:20px;
+
+}
+
+
+.card p{
+
+color:#756960;
+margin-bottom:20px;
+
+}
+
+
+
+
+/* FORM */
+
+
+label{
+
+font-size:14px;
+display:block;
+margin-bottom:8px;
+
+}
+
+
+input{
+
+width:100%;
+padding:14px;
+border-radius:15px;
+border:1px solid #E6DDD2;
+margin-bottom:15px;
+font-size:15px;
+
+}
+
+
+button{
+
+border:none;
+background:var(--sage);
+color:white;
+padding:13px 25px;
+border-radius:25px;
+cursor:pointer;
+
+}
+
+
+button:hover{
+opacity:.8;
+}
+
+
+
+/* TOTAL */
+
+
+.total{
+
+margin-top:20px;
+background:var(--cream);
+padding:20px;
+border-radius:20px;
+
+}
+
+
+.total strong{
+
+color:var(--brown);
+font-size:22px;
+
+}
+
+
+
+/* HISTORIQUE */
+
+
+.history{
+
+margin-top:20px;
+
+}
+
+
+.history div{
+
+padding:12px;
+border-bottom:1px solid var(--soft);
+
+}
+
+
+
+/* ASPECT */
+
+
+.aspect{
+
+display:flex;
+justify-content:center;
+gap:20px;
+margin-top:20px;
+
+}
+
+
+.aspect button{
+
+width:55px;
+height:55px;
+border-radius:50%;
+font-size:22px;
+
+}
+
+
+
+
+canvas{
+
+margin-top:20px;
+
+}
+
+
+
+
+
+@media(max-width:700px){
+
+header{
+
+padding:20px;
+
+}
+
+
+main{
+
+padding:30px 20px;
+
+}
+
+}
+
+
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+<header>
+
+
+<div class="logo">
+
+<img src="logo-qoya.png">
+
+</div>
+
+
+<a href="dashboard.html" class="back">
+Tableau de bord
+</a>
+
+
+</header>
+
+
+
+
+<main>
+
+
+<h1>
+Alimentation
+</h1>
+
+
+<p class="subtitle">
+Suivi des repas, croissance et évolution physique.
+</p>
+
+
+
+
+
+<div class="grid">
+
+
+
+
+
+<!-- REPAS -->
+
+
+<section class="card">
+
+
+<h2>
+Repas quotidien
+</h2>
+
+
+
+<label>
+Croquettes (g)
+</label>
+
+<input id="croquettes" type="number" placeholder="Ex : 35">
+
+
+
+<label>
+Pâtée / Terrine (g)
+</label>
+
+<input id="patee" type="number" placeholder="Ex : 50">
+
+
+
+<button onclick="ajouterRepas()">
+Enregistrer le repas
+</button>
+
+
+
+
+<div class="total">
+
+<p>
+Total enregistré
+</p>
+
+
+<strong id="total">
+0 g
+</strong>
+
+
+</div>
+
+
+
+<div class="history" id="historiqueRepas"></div>
+
+
+
+</section>
+
+
+
+
+
+
+
+<!-- VETO -->
+
+
+<section class="card">
+
+
+<h2>
+Courbe vétérinaire
+</h2>
+
+
+
+<p>
+Ajoutez le poids mesuré lors des rendez-vous vétérinaires.
+</p>
+
+
+
+<label>
+Date
+</label>
+
+<input id="dateVeto" type="date">
+
+
+
+<label>
+Poids (kg)
+</label>
+
+<input id="poidsVeto" type="number" step="0.01" placeholder="Ex : 1.20">
+
+
+
+<button onclick="ajouterPoids()">
+Ajouter une pesée
+</button>
+
+
+
+<canvas id="courbePoids"></canvas>
+
+
+
+</section>
+
+
+
+
+
+
+
+<!-- ASPECT -->
+
+
+<section class="card">
+
+
+<h2>
+Évolution physique
+</h2>
+
+
+<p>
+Notez simplement l'apparence générale de votre chat.
+</p>
+
+
+
+<div class="aspect">
+
+
+<button onclick="ajouterAspect('moins')">
+−
+</button>
+
+
+<button onclick="ajouterAspect('neutre')">
+=
+</button>
+
+
+<button onclick="ajouterAspect('plus')">
++
+</button>
+
+
+</div>
+
+
+
+<canvas id="courbeAspect"></canvas>
+
+
+
+<div class="history" id="historiqueAspect"></div>
+
+
+
+</section>
+
+
+
+</div>
+
+
+
+</main>
+
+
+
+
+
+
+<script>
+
+
+let repas =
+JSON.parse(localStorage.getItem("qoyaRepas")) || [];
+
+
+let poids =
+JSON.parse(localStorage.getItem("qoyaPoids")) || [];
+
+
+let aspects =
+JSON.parse(localStorage.getItem("qoyaAspect")) || [];
+
+
+
+
+let graphiquePoids;
+
+let graphiqueAspect;
+
+
+
+
+
+
+/* REPAS */
+
+
+function ajouterRepas(){
+
+
+let croquettes =
+Number(document.getElementById("croquettes").value) || 0;
+
+
+let patee =
+Number(document.getElementById("patee").value) || 0;
+
+
+
+let total = croquettes + patee;
+
+
+
+repas.push({
+
+date:new Date().toLocaleDateString(),
+
+quantite:total
+
+});
+
+
+
+localStorage.setItem(
+"qoyaRepas",
+JSON.stringify(repas)
+);
+
+
+
+afficherRepas();
+
+
+}
+
+
+
+
+function afficherRepas(){
+
+
+let zone =
+document.getElementById("historiqueRepas");
+
+
+zone.innerHTML="";
+
+
+
+let total=0;
+
+
+
+repas.forEach(r=>{
+
+
+total += r.quantite;
+
+
+
+zone.innerHTML += `
+
+<div>
+${r.date} : ${r.quantite} g
+</div>
+
+`;
+
+
+
+});
+
+
+
+document.getElementById("total").innerHTML =
+total+" g";
+
+
+
+}
+
+
+
+
+
+
+/* POIDS */
+
+
+function ajouterPoids(){
+
+
+let date =
+document.getElementById("dateVeto").value;
+
+
+let poidsValue =
+Number(document.getElementById("poidsVeto").value);
+
+
+
+if(!date || !poidsValue)
+return;
+
+
+
+poids.push({
+
+date:date,
+
+poids:poidsValue
+
+});
+
+
+
+localStorage.setItem(
+"qoyaPoids",
+JSON.stringify(poids)
+);
+
+
+
+afficherCourbePoids();
+
+
+
+}
+
+
+
+
+function afficherCourbePoids(){
+
+
+if(graphiquePoids)
+graphiquePoids.destroy();
+
+
+
+graphiquePoids =
+new Chart(
+document.getElementById("courbePoids"),
+{
+
+
+type:"line",
+
+
+data:{
+
+
+labels:
+poids.map(p=>p.date),
+
+
+datasets:[{
+
+label:"Poids (kg)",
+
+data:
+poids.map(p=>p.poids),
+
+borderWidth:3,
+
+tension:0.4
+
+}]
+
+
+},
+
+
+options:{
+
+responsive:true
+
+}
+
+
+});
+
+
+
+}
+
+
+
+
+
+
+/* ASPECT PHYSIQUE */
+
+
+function ajouterAspect(note){
+
+
+let valeur;
+
+
+if(note=="moins")
+valeur=1;
+
+
+if(note=="neutre")
+valeur=2;
+
+
+if(note=="plus")
+valeur=3;
+
+
+
+
+aspects.push({
+
+date:new Date().toLocaleDateString(),
+
+note:note,
+
+valeur:valeur
+
+});
+
+
+
+localStorage.setItem(
+"qoyaAspect",
+JSON.stringify(aspects)
+);
+
+
+
+afficherAspect();
+
+
+}
+
+
+
+
+function afficherAspect(){
+
+
+let zone =
+document.getElementById("historiqueAspect");
+
+
+zone.innerHTML="";
+
+
+
+aspects.forEach(a=>{
+
+
+let symbole="=";
+
+
+if(a.note=="moins")
+symbole="−";
+
+
+if(a.note=="plus")
+symbole="+";
+
+
+
+zone.innerHTML += `
+
+<div>
+${a.date} : ${symbole}
+</div>
+
+`;
+
+
+});
+
+
+
+
+
+
+if(graphiqueAspect)
+graphiqueAspect.destroy();
+
+
+
+
+graphiqueAspect =
+new Chart(
+document.getElementById("courbeAspect"),
+{
+
+
+type:"line",
+
+
+data:{
+
+
+labels:
+aspects.map(a=>a.date),
+
+
+datasets:[{
+
+
+label:"Évolution physique",
+
+data:
+aspects.map(a=>a.valeur),
+
+borderWidth:3,
+
+tension:0.4
+
+}]
+
+
+},
+
+
+
+options:{
+
+
+scales:{
+
+
+y:{
+
+
+min:1,
+
+max:3,
+
+ticks:{
+
+
+stepSize:1,
+
+
+callback:function(value){
+
+if(value==1)
+return "−";
+
+if(value==2)
+return "=";
+
+if(value==3)
+return "+";
+
+}
+
+
+}
+
+
+}
+
+
+}
+
+
+
+}
+
+
+
+});
+
+
+
+}
+
+
+
+
+
+afficherRepas();
+
+afficherCourbePoids();
+
+afficherAspect();
+
+
+
+</script>
+
+
+</body>
+
+</html>
