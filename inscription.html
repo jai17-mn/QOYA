@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Créer un compte - QOYA</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+
+<style>
+
+:root {
+
+    --cream:#F8F3EA;
+    --brown:#5A3828;
+    --sage:#A8B89A;
+    --text:#3A2A22;
+
+}
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+body{
+
+    min-height:100vh;
+    background:var(--cream);
+    font-family:"Inter",sans-serif;
+    color:var(--text);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+
+
+/* CONTAINER */
+
+.container{
+
+    width:100%;
+    max-width:450px;
+    padding:20px;
+
+}
+
+
+
+/* LOGO */
+
+.logo{
+
+    text-align:center;
+    margin-bottom:35px;
+
+}
+
+
+.logo img{
+
+    width:150px;
+
+}
+
+
+
+/* CARTE */
+
+.card{
+
+    background:white;
+    padding:45px;
+
+    border-radius:30px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,0.06);
+
+}
+
+
+
+/* TITRES */
+
+h1{
+
+    text-align:center;
+    color:var(--brown);
+
+    font-size:30px;
+
+    margin-bottom:10px;
+
+}
+
+
+.subtitle{
+
+    text-align:center;
+
+    color:#756960;
+
+    font-size:14px;
+
+    margin-bottom:35px;
+
+}
+
+
+
+/* FORMULAIRE */
+
+
+label{
+
+    display:block;
+
+    font-size:14px;
+
+    margin-bottom:8px;
+
+}
+
+
+input{
+
+    width:100%;
+
+    padding:15px;
+
+    border-radius:15px;
+
+    border:1px solid #E6DDD2;
+
+    margin-bottom:18px;
+
+    font-size:15px;
+
+    outline:none;
+
+}
+
+
+
+input:focus{
+
+    border-color:var(--sage);
+
+}
+
+
+
+/* BOUTON */
+
+
+button{
+
+    width:100%;
+
+    background:var(--sage);
+
+    color:white;
+
+    border:none;
+
+    padding:16px;
+
+    border-radius:30px;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+}
+
+
+
+button:hover{
+
+    opacity:0.85;
+
+}
+
+
+
+/* LIENS */
+
+
+.links{
+
+    text-align:center;
+
+    margin-top:25px;
+
+    font-size:14px;
+
+}
+
+
+.links a{
+
+    color:var(--brown);
+
+    text-decoration:none;
+
+    font-weight:500;
+
+}
+
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+
+<div class="container">
+
+
+<div class="logo">
+
+<img src="logo-qoya.png" alt="Logo QOYA">
+
+</div>
+
+
+
+
+<div class="card">
+
+
+<h1>
+Créer votre espace
+</h1>
+
+
+<p class="subtitle">
+Commencez le suivi de votre compagnon avec QOYA
+</p>
+
+
+
+
+<form action="dashboard.html">
+
+
+
+<label>
+Prénom
+</label>
+
+<input 
+type="text"
+placeholder="Votre prénom">
+
+
+
+<label>
+Adresse email
+</label>
+
+<input 
+type="email"
+placeholder="Votre adresse email">
+
+
+
+<label>
+Mot de passe
+</label>
+
+<input 
+type="password"
+placeholder="Créer un mot de passe">
+
+
+
+<label>
+Confirmer le mot de passe
+</label>
+
+<input 
+type="password"
+placeholder="Confirmer le mot de passe">
+
+
+
+<button>
+Créer mon compte
+</button>
+
+
+
+</form>
+
+
+
+<div class="links">
+
+<p>
+Déjà un compte ?
+<a href="connexion.html">
+Se connecter
+</a>
+</p>
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+</body>
+
+</html>
