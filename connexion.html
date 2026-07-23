@@ -8,228 +8,152 @@
 
 <title>Connexion - QOYA</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
 
 <style>
 
-:root {
+:root{
 
-    --cream:#F8F3EA;
-    --brown:#5A3828;
-    --sage:#A8B89A;
-    --text:#3A2A22;
+--cream:#F8F3EA;
+--brown:#5A3828;
+--sage:#A8B89A;
 
 }
 
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+
 }
+
 
 
 body{
 
-    min-height:100vh;
-    background:var(--cream);
-    font-family:"Inter",sans-serif;
-    color:var(--text);
+font-family:Arial,sans-serif;
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
+background:var(--cream);
 
-}
+height:100vh;
 
+display:flex;
 
+justify-content:center;
 
-/* PAGE */
-
-.container{
-
-    width:100%;
-    max-width:430px;
-    padding:20px;
+align-items:center;
 
 }
 
 
 
-/* LOGO */
+
+.box{
+
+background:white;
+
+width:380px;
+
+padding:40px;
+
+border-radius:30px;
+
+}
+
+
+
 
 .logo{
 
-    text-align:center;
-    margin-bottom:35px;
+text-align:center;
+
+margin-bottom:25px;
 
 }
+
 
 
 .logo img{
 
-    width:150px;
+width:140px;
 
 }
 
 
 
-/* CARTE */
-
-.login-card{
-
-    background:white;
-    padding:45px;
-    border-radius:30px;
-
-    box-shadow:0 15px 40px rgba(0,0,0,0.06);
-
-}
-
-
-
-/* TEXTES */
 
 h1{
 
-    text-align:center;
-    color:var(--brown);
-    font-size:30px;
-    margin-bottom:10px;
+text-align:center;
+
+color:var(--brown);
+
+margin-bottom:25px;
 
 }
 
 
-.subtitle{
-
-    text-align:center;
-    color:#756960;
-    font-size:14px;
-    margin-bottom:35px;
-
-}
-
-
-
-/* FORMULAIRE */
-
-
-label{
-
-    display:block;
-    font-size:14px;
-    margin-bottom:8px;
-
-}
 
 
 input{
 
-    width:100%;
+width:100%;
 
-    padding:15px;
+padding:14px;
 
-    border-radius:15px;
+margin-bottom:15px;
 
-    border:1px solid #E6DDD2;
+border-radius:15px;
 
-    font-size:15px;
-
-    margin-bottom:20px;
-
-    outline:none;
+border:1px solid #ddd;
 
 }
 
 
-input:focus{
-
-    border-color:var(--sage);
-
-}
-
-
-
-/* BOUTON */
 
 
 button{
 
-    width:100%;
+width:100%;
 
-    border:none;
+padding:15px;
 
-    background:var(--sage);
+border:none;
 
-    color:white;
+border-radius:25px;
 
-    padding:16px;
+background:var(--sage);
 
-    border-radius:30px;
+color:white;
 
-    font-size:16px;
+font-size:16px;
 
-    cursor:pointer;
-
-}
-
-
-
-button:hover{
-
-    opacity:0.85;
+cursor:pointer;
 
 }
 
 
 
-/* LIENS */
+.message{
 
+text-align:center;
 
-.links{
+margin-top:15px;
 
-    text-align:center;
-
-    margin-top:25px;
-
-    font-size:14px;
-
-}
-
-
-.links a{
-
-    color:var(--brown);
-
-    text-decoration:none;
-
-    font-weight:500;
-
-}
-
-
-.links p{
-
-    margin-top:15px;
-
-    color:#756960;
+font-size:14px;
 
 }
 
 
 
-/* MOBILE */
 
-@media(max-width:500px){
+a{
 
-.login-card{
-
-    padding:30px;
+color:var(--brown);
 
 }
 
-}
 
 
 </style>
@@ -242,97 +166,148 @@ button:hover{
 
 
 
-<div class="container">
-
+<div class="box">
 
 
 <div class="logo">
 
-<img src="logo-qoya.png" alt="Logo QOYA">
+<img src="logos.png" alt="QOYA">
 
 </div>
 
 
 
-
-<div class="login-card">
-
-
 <h1>
-Bienvenue
+Connexion
 </h1>
 
 
-<p class="subtitle">
-Connectez-vous à votre espace QOYA
-</p>
-
-
-
-
-<form>
-
-
-<label>
-Adresse email
-</label>
 
 
 <input 
+id="email"
 type="email"
-placeholder="Votre adresse email">
+placeholder="Adresse mail">
 
-
-
-<label>
-Mot de passe
-</label>
 
 
 <input 
+id="password"
 type="password"
-placeholder="Votre mot de passe">
+placeholder="Mot de passe">
 
 
 
-<button>
+
+
+<button onclick="connexion()">
+
 Se connecter
+
 </button>
 
 
 
-</form>
+<div class="message" id="message"></div>
 
 
 
+<p style="text-align:center;margin-top:20px">
 
-<div class="links">
-
-
-<a href="#">
-Mot de passe oublié ?
-</a>
-
-
-
-<p>
 Pas encore de compte ?
+
 <a href="inscription.html">
 Créer un compte
 </a>
+
 </p>
 
 
-</div>
-
-
 
 </div>
 
 
 
-</div>
 
+
+
+<script>
+
+
+function connexion(){
+
+
+let email=document.getElementById("email").value;
+
+let password=document.getElementById("password").value;
+
+
+
+let compte=localStorage.getItem("qoyaUtilisateur");
+
+
+
+if(!compte){
+
+document.getElementById("message").innerHTML=
+"Aucun compte trouvé";
+
+return;
+
+}
+
+
+
+compte=JSON.parse(compte);
+
+
+
+
+
+if(
+email===compte.email &&
+password===compte.password
+){
+
+
+localStorage.setItem(
+"qoyaSession",
+JSON.stringify(compte)
+);
+
+
+
+document.getElementById("message").innerHTML=
+"Connexion réussie";
+
+
+
+setTimeout(()=>{
+
+window.location.href="dashboard.html";
+
+},1000);
+
+
+
+}
+
+else{
+
+
+document.getElementById("message").innerHTML=
+"Email ou mot de passe incorrect";
+
+
+}
+
+
+
+}
+
+
+
+</script>
 
 
 </body>
